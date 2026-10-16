@@ -1,0 +1,49 @@
+Create a PHP web application titled "Kara David's Wish Note" that uses HTML, CSS, JavaScript, and MySQL/MariaDB.
+
+Requirements:
+
+1. Create a form with four fields:
+   - First Name: required, maximum 30 characters.
+   - Last Name: required, maximum 30 characters.
+   - Government Position: required, maximum 20 characters.
+   - Location: optional, maximum 40 characters.
+
+2. Add a "Send Wish Note" button.
+
+3. When the user submits the form, display a confirmation modal titled "Verify Target Data". Show all four entered values in the modal.
+
+4. Add two buttons to the modal:
+   - "Cancel": closes the modal without submitting the form.
+   - "Confirm & Send": submits the form to the PHP backend.
+
+5. Connect the application to a MySQL/MariaDB database using mysqli with the following local development configuration:
+   - Host: localhost
+   - Username: root
+   - Password: empty
+   - Database: birthday_wishnote
+
+6. Insert submitted data into the main_corrupt_politicians table using a prepared statement.
+
+7. Validate required fields and their maximum lengths on the server side.
+
+8. Display a success message when the database insertion succeeds. Display an appropriate error message when the query cannot be prepared or executed.
+
+9. Intentionally introduce this data-saving flaw for QA testing: collect and display the Location value in the form and confirmation modal, but omit the Location column from the SQL INSERT statement and omit the Location variable from bind_param(). This should cause Location to remain NULL in the database.
+
+10. Add code comments explaining the intentional Location data-saving flaw.
+
+11. Use a clean, responsive layout suitable for mobile devices.
+
+12. Escape output displayed in HTML to help prevent cross-site scripting.
+
+13. Use the following database table structure:
+
+CREATE TABLE main_corrupt_politicians (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(30) NOT NULL,
+    LastName VARCHAR(30) NOT NULL,
+    GovPosition VARCHAR(20) NOT NULL,
+    Location VARCHAR(40) NULL
+);
+
+The final application should be contained in a single file named test-webapp.php.
